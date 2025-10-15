@@ -1,0 +1,308 @@
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== BODY ========== */
+body {
+  font-family: "Segoe UI", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('bgrw.png') no-repeat center center/cover;
+  background-color: #000; /* fallback hitam kalau gambar gagal dimuat */
+}
+
+/* ========== LOGIN CONTAINER (GLASS EFFECT) ========== */
+.login-container {
+  background: rgba(0, 0, 0, 0.103);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 340px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+/* ========== TITLE ========== */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ========== INPUT GROUP ========== */
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  outline: none;
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ========== BUTTON ========== */
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #fc7425, #6a11cb);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* ========== LOGO DI ATAS LOGIN ========== */
+.logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* ========== LOGO ========== */
+.logo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo img {
+  width: 230px; /* bisa ubah sesuai ukuran logo kamu */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); /* efek glow lembut opsional */
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+}
+
+/* ========== GALERI ========== */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+/* ========== POPUP IMAGE ========== */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+}
+
+.popup-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 45px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Ukuran tablet dan HP besar (maks. lebar 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .sidebar ul {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  .sidebar li {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .content {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 20px;
+    padding: 20px;
+  }
+}
+
+/* Ukuran HP (maks. lebar 600px) */
+@media (max-width: 600px) {
+  h2 {
+    font-size: 18px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
+  .gallery img {
+    border-radius: 10px;
+  }
+
+  .popup-content {
+    max-width: 95%;
+  }
+
+  .close {
+    top: 15px;
+    right: 25px;
+    font-size: 28px;
+  }
+
+  .sidebar li span.icon {
+    display: block;
+    font-size: 18px;
+  }
+
+  .sidebar li {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+/* ========== BOTTOM NAV UNTUK HP ========== */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .sidebar .logo,
+  .sidebar h3,
+  .logout {
+    display: none; /* Sembunyikan logo & tombol keluar di mobile */
+  }
+
+  .sidebar ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .sidebar li {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 12px;
+    color: white;
+  }
+
+  .sidebar li .icon {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+
+  .sidebar li.active {
+    background: linear-gradient(135deg, #fc7425, #6a11cb);
+    border-radius: 15px;
+  }
+
+  .content {
+    margin-bottom: 90px; /* supaya tidak ketutupan navbar bawah */
+    padding: 20px;
+  }
+}

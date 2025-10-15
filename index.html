@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RW Team Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">
+      <img src="logo.png" alt="Logo RW Team">
+    </div>
+
+<h1 align="center">RW STORE </h1>
+  
+    <h2>Login</h2>
+
+    <form action="login.php" method="POST">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Masukkan email" required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Masukkan kata sandi" required>
+      </div>
+
+      <button type="submit">Masuk</button>
+    </form>
+  </div>
+
+  <script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  // Contoh login sederhana (belum pakai backend)
+  if (email === "admin@rwteam.com" && password === "12345") {
+    // Arahkan ke halaman dashboard
+    window.location.href = "dashboard.html";
+  } else {
+    alert("ID Team atau password salah!");
+  }
+});
+</script>
+
+</body>
+</html>

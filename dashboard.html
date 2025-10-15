@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RW Team Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI Variable', sans-serif;
+      background: url('bgrw.png') no-repeat center center/cover;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 30px;
+      position: center;
+      top: 0;
+      width: 61%;
+      z-index: 100;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 100px;
+      height: 50px;
+    }
+
+    .navbar nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar nav ul li {
+      cursor: pointer;
+      font-weight: 600;
+      transition: color 0.15s;
+    }
+
+    .navbar nav ul li.active, .navbar nav ul li:hover {
+      color: #fa4700;
+    }
+
+    .logout {
+      background: #ff5e00;
+      border: none;
+      padding: 8px 16px;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.5s;
+    }
+
+    .logout:hover {
+      background: #e4dede;
+    }
+
+    /* ===== Tombol Login Baru ===== */
+    .login-btn {
+      background: #ff4800;
+      border: none;
+      padding: 10px 20px;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 25px;
+    }
+
+    .login-btn:hover {
+      background: #00e676;
+    }
+
+    .content {
+      padding-top: 100px;
+      text-align: center;
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    section.active-section {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .profil-area img, .store-area img {
+      width: 200px;
+      border-radius: 10px;
+      margin: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    a {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .qr-ig {
+      width: 180px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <!-- ========== NAVBAR ATAS ========== -->
+  <header class="navbar">
+    <div class="logo-area">
+      <img src="logo.png" alt="Logo RW Team" class="logo">
+      <h2></h2>
+    </div>
+    <nav>
+      <ul>
+        <li class="active" data-section="home"><center>🏠 Beranda</center></li>
+        <li data-section="profile"><center>👤 Profil Team</center></li>
+        <li data-section="store"> <center>🛒 Store</center></li>
+        <li data-section="sosmed"><center>💬 Sosial Media</center></li>
+      </ul>
+    </nav>
+    <button class="login-btn" onclick="window.location.href='index.html'">LOGIN</button>
+  </header>
+
+  <!-- ========== KONTEN UTAMA ========== -->
+  <main class="content">
+    <section id="home" class="active-section">
+      <h1>WELCOME TO RW TEAM</h1>
+      <div class="home-area">
+        <img src="kata-rw.png" alt="kata rw" class="kata-rw">
+        <img src="logo.png" alt="Logo RW Team" class="kata-rw2">
+        <img src="gowe.png" alt="gowe" class="gowe">
+        <img src="rwtos.png" alt="rwtos" class="rwtos">
+      </div>
+    
+     
+    </section>
+
+    <section id="profile">
+      <h1>ARSIP KENANGAN TEAM</h1>
+      <div class="profil-area">
+        <img src="rw-team1.JPG" alt="Foto rw team">
+        <img src="rw-team2.jpg" alt="Foto rw team">
+        <img src="rw-team3.jpg" alt="Foto rw team">
+        <img src="rw-team4.jpg" alt="Foto rw team">
+        <img src="rw-team5.jpg" alt="Foto rw team">
+        <img src="rw-team6.jpg" alt="Foto rw team">
+      </div>
+    </section>
+
+    <section id="store">
+      <h1>STORE</h1>
+      <div class="store-area">
+        <img src="kaos_rw.png" alt="Kaos RW">
+        <img src="LEYOUT RW-01.png" alt="Kaos 1">
+        <img src="LEYOUT RW-02.png" alt="Kaos 2">
+      </div>
+    </section>
+
+    <section id="sosmed">
+      <h1>Sosial Media</h1>
+      <p><a href="https://www.instagram.com/rw.team" target="_blank">📸 Instagram</a></p>
+      <img src="rw.team_qr.png" alt="Scan IG" class="qr-ig">
+    </section>
+  </main>
+
+  <script>
+    const menuItems = document.querySelectorAll(".navbar nav ul li");
+    const sections = document.querySelectorAll("main section");
+
+    menuItems.forEach(item => {
+      item.addEventListener("click", () => {
+        menuItems.forEach(li => li.classList.remove("active"));
+        item.classList.add("active");
+
+        sections.forEach(sec => {
+          sec.classList.remove("active-section");
+          if (sec.id === item.dataset.section) sec.classList.add("active-section");
+        });
+      });
+    });
+
+    // Tombol keluar tetap kembali ke halaman login
+    document.querySelector(".logout").addEventListener("click", () => {
+      window.location.href = "index.html";
+    });
+  </script>
+</body>
+</html>
